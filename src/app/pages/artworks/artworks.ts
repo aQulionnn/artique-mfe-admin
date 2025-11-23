@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { createReadApi } from "@aqulionnn/artique-api-lib/src/services/readApi"
+import { createReadApi } from "../../services/readApi"
 
 
 @Component({
@@ -12,7 +12,7 @@ import { createReadApi } from "@aqulionnn/artique-api-lib/src/services/readApi"
 export class Artworks implements OnInit {
     artworks: Artwork[] = []
 
-    ngOnInit = async () => {
+    async ngOnInit() {
         const api = createReadApi("https://localhost:7039/graphql")
         const fields = ["id", "title"]
 

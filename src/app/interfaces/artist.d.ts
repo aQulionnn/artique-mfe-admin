@@ -1,0 +1,3 @@
+type CreateArtistRequest = {
+    name: string
+}
