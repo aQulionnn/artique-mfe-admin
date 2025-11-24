@@ -1,0 +1,7 @@
+<main class="accounts">
+    @for (account of accounts; track account.id) {
+        <span class="accounts__item">
+            {{ account.username }} - {{ account.email }}
+        </span>
+    }
+</main>

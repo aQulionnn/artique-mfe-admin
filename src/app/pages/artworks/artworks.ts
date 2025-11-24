@@ -14,7 +14,7 @@ export class Artworks implements OnInit {
 
     async ngOnInit() {
         const api = createReadApi("https://localhost:7039/graphql")
-        const fields = ["id", "title"]
+        const fields = ["id", "title", "year", "artist { name }"]
 
         const response = await api.getArtworks<{ artworks: Artwork[] }>(fields)
         this.artworks = response.data.artworks
@@ -23,5 +23,9 @@ export class Artworks implements OnInit {
 
 type Artwork = {
     id: string,
-    title: string
+    title: string,
+    year: number,
+    artist: {
+        name: string
+    }
 }

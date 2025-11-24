@@ -1,5 +1,7 @@
 <main class="artworks">
     @for (artwork of artworks; track artwork.id) {
-        <div>{{ artwork.title }}</div>
+        <span class="artworks__item">
+            {{ artwork.title }} ( {{ artwork.year }} )
+        </span>
     }
 </main>

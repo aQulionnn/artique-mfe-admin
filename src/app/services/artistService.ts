@@ -16,7 +16,7 @@ export const getArtists = async <TResponse>(api: AxiosInstance, fields: string[]
         }
     `
 
-    const {data} = await api.post<QueryResponse<TResponse>>("", {query})
+    const { data } = await api.post<QueryResponse<TResponse>>("", { query })
     return data
 }
 

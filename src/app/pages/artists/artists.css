@@ -1,11 +1,11 @@
-.artworks {
-    padding: 50px 0 50px 50px;
+.artists {
+    padding: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-.artworks__item {
+.artists__item {
     padding: 1rem 2rem;
     border: 1px solid #ccc;
 
@@ -16,6 +16,6 @@
     cursor: pointer;
 }
 
-.artworks__item:hover {
+.artists__item:hover {
     transform: scale(1.05);
 }
