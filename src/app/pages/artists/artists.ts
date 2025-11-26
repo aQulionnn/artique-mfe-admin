@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { createReadApi } from '../../services/readApi'
+import { environment } from '../../../environments/environment'
 
 @Component({
     selector: 'app-artists',
@@ -12,7 +13,7 @@ export class Artists implements OnInit {
     artists: Artist[] = []
 
     async ngOnInit() {
-        const api = createReadApi("https://localhost:7039/graphql")
+        const api = createReadApi(`${environment.apiUrl}/graphql`)
         const fields = ["id", "name"]
 
         const response = await api.getArtists<{ artists: Artist[] }>(fields)
