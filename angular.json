@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/artique-mfe-admin",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
