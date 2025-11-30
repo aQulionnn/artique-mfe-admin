@@ -24,3 +24,43 @@ export const getAccounts = async <TResponse>(api: AxiosInstance, fields: string[
     const { data } = await api.post<QueryResponse<TResponse>>("", { query })
     return data
 }
+
+export const getAccountById = async <TResponse>(api: AxiosInstance, id: string, fields: string[]) => {
+    const query = `
+        query {
+            accountById(id: "${id}") {
+                ${fields.join(" ")}
+            }
+        }
+    `
+
+    const variables = {
+        id: id
+    }
+
+    const { data } = await api.post<QueryResponse<TResponse>>("", {query, variables})
+    return data
+}
+
+export const searchAccounts = async <TResponse>(
+    api: AxiosInstance,
+    text: string,
+    fields: string[]
+) => {
+    const query = `
+        query SearchAccounts($input: SearchAccountsInput!) {
+            searchAccounts(input: $input) {
+                ${fields.join(' ')}
+            }
+        }
+    `
+
+    const variables = {
+        input: {
+            text: text
+        }
+    }
+
+    const { data } = await api.post<QueryResponse<TResponse>>("", { query, variables })
+    return data
+}

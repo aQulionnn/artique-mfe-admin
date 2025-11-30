@@ -15,3 +15,7 @@ export type SignUpRequest = {
     username: string
     password: string
 }
+
+export type SearchAccountsInput = {
+    text: string
+}

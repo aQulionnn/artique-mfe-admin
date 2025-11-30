@@ -1,5 +1,6 @@
 import { AxiosInstance } from "axios";
 import { QueryResponse } from "../interfaces/artwork";
+import { CreateArtistRequest } from '../interfaces/artist'
 
 
 export const createArtist = async (api: AxiosInstance, request: CreateArtistRequest) => {
@@ -34,5 +35,28 @@ export const getArtistById = async <TResponse>(api: AxiosInstance, id: string, f
     }
 
     const {data} = await api.post<QueryResponse<TResponse>>("", {query, variables})
+    return data
+}
+
+export const searchArtists = async <TResponse>(
+    api: AxiosInstance,
+    name: string,
+    fields: string[]
+) => {
+    const query = `
+        query SearchArtists($input: SearchArtistsInput!) {
+            searchArtists(input: $input) {
+                ${fields.join(' ')}
+            }
+        }
+    `
+
+    const variables = {
+        input: {
+            name: name
+        }
+    }
+
+    const { data } = await api.post<QueryResponse<TResponse>>("", { query, variables })
     return data
 }

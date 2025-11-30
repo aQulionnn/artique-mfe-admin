@@ -47,7 +47,7 @@ export const getArtworkById = async <TResponse>(api: AxiosInstance, id: string, 
         id: id
     }
 
-    const {data} = await api.post<QueryResponse<TResponse>>("", {query, variables})
+    const { data } = await api.post<QueryResponse<TResponse>>("", {query, variables})
     return data
 }
 
@@ -59,12 +59,12 @@ export const searchArtworks = async <TResponse>(
     fields: string[]
 ) => {
     const query = `
-    query SearchArtworks($input: SearchArtworksInput!) {
-        searchArtworks(input: $input) {
-            ${fields.join(' ')}
+        query SearchArtworks($input: SearchArtworksInput!) {
+            searchArtworks(input: $input) {
+                ${fields.join(' ')}
+            }
         }
-    }
-  `
+    `
 
     const variables = {
         input: {
