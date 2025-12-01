@@ -1,7 +1,7 @@
 import axios, { type AxiosInstance } from "axios";
 import { getArtworkById, getArtworks, searchArtworks } from "./artworkService";
-import { getArtistById, getArtists } from './artistService'
-import { getAccounts } from './accountService'
+import { getArtistById, getArtists, searchArtists } from './artistService'
+import { getAccounts, searchAccounts } from './accountService'
 
 export const createReadApi = (url: string) => {
     const api = axios.create({
@@ -25,7 +25,9 @@ export const createReadApi = (url: string) => {
 
         getArtists: <TResponse>(fields: string[]) => getArtists<TResponse>(api, fields),
         getArtistById: <TResponse>(id: string, fields: string[]) => getArtistById<TResponse>(api, id, fields),
+        searchArtists: <TResponse>(name: string, fields: string[]) => searchArtists<TResponse>(api, name, fields),
 
-        getAccounts: <TResponse>(fields: string[]) => getAccounts<TResponse>(api, fields)
+        getAccounts: <TResponse>(fields: string[]) => getAccounts<TResponse>(api, fields),
+        searchAccounts: <TResponse>(text: string, fields: string[]) => searchAccounts<TResponse>(api, text, fields)
     }
 }

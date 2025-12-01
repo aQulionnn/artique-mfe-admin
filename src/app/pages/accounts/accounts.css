@@ -1,11 +1,20 @@
 .accounts {
-    padding: 50px;
+    padding: 0 50px 50px 50px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.accounts__item {
+.accounts__header {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+
+.account {
     padding: 1rem 2rem;
     border: 1px solid #ccc;
 
@@ -16,6 +25,16 @@
     cursor: pointer;
 }
 
-.accounts__item:hover {
+.account:hover {
     transform: scale(1.05);
+}
+
+.account__email {
+    opacity: 0.75;
+}
+
+.accounts__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }

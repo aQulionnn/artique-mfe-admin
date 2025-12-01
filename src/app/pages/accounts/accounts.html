@@ -1,7 +1,15 @@
 <main class="accounts">
-    @for (account of accounts; track account.id) {
-        <span class="accounts__item">
-            {{ account.username }} - {{ account.email }}
-        </span>
-    }
+    <header class="accounts__header">
+        <app-search [searchTerm]="searchText" (searchChange)="onSearch($event)"/>
+    </header>
+    <section class="accounts__content">
+        @for (account of accounts; track account.id) {
+            <p class="account">
+                {{ account.username }} -
+                <span class="account__email">
+                    {{ account.email }}
+                </span>
+            </p>
+        }
+    </section>
 </main>

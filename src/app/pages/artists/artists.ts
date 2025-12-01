@@ -1,23 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { createReadApi } from '../../services/readApi'
 import { environment } from '../../../environments/environment'
+import { Search } from '../../components/search/search'
 
 @Component({
     selector: 'app-artists',
-    imports: [],
+    imports: [
+        Search
+    ],
     templateUrl: './artists.html',
     styleUrl: './artists.css'
 })
 
 export class Artists implements OnInit {
+    searchText = ''
     artists: Artist[] = []
 
-    async ngOnInit() {
-        const api = createReadApi(`${environment.apiUrl}/graphql`)
-        const fields = ["id", "name"]
+    private api = createReadApi(`${environment.apiUrl}/graphql`)
+    private fields = ["id", "name"]
 
-        const response = await api.getArtists<{ artists: Artist[] }>(fields)
-        this.artists = response.data.artists
+    async ngOnInit() {
+        await this.loadArtists("");
+    }
+
+    async onSearch(query: string) {
+        this.searchText = query;
+        await this.loadArtists(query);
+    }
+
+    private async loadArtists(query: string) {
+        const response = await this.api.searchArtists<{ artists: Artist[] }>(query, this.fields);
+        this.artists = response.data.searchArtworks;
     }
 }
 

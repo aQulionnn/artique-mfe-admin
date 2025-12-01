@@ -1,11 +1,20 @@
 .artists {
-    padding: 50px;
+    padding: 0 50px 50px 50px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.artists__item {
+.artists__header {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+
+.artist {
     padding: 1rem 2rem;
     border: 1px solid #ccc;
 
@@ -16,6 +25,12 @@
     cursor: pointer;
 }
 
-.artists__item:hover {
+.artist:hover {
     transform: scale(1.05);
+}
+
+.artists__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
