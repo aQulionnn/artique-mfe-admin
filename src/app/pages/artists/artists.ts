@@ -30,7 +30,7 @@ export class Artists implements OnInit {
 
     private async loadArtists(query: string) {
         const response = await this.api.searchArtists<{ artists: Artist[] }>(query, this.fields);
-        this.artists = response.data.searchArtworks;
+        this.artists = response.data.searchArtists;
     }
 }
 

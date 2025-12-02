@@ -4,6 +4,7 @@ import { createArtwork, deleteArtwork, updateArtworkDescription } from "./artwor
 import { createArtist } from "./artistService";
 import { signIn, signUp } from "./accountService";
 import { SignInRequest, SignUpRequest } from "../interfaces/account";
+import { CreateArtistRequest } from '../interfaces/artist'
 
 export const createWriteApi = (url: string) => {
     const api = axios.create({

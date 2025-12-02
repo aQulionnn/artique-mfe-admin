@@ -4,7 +4,7 @@
     </header>
     <section class="artworks__content">
         @for (artwork of artworks; track artwork.id) {
-            <p class="artwork">
+            <p class="artwork" (click)="edit(artwork.id)">
                 {{ artwork.title }}
                 <span class="artwork__year">
                     ( {{ artwork.year }} )

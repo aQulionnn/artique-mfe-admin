@@ -29,7 +29,7 @@ export class Accounts implements OnInit {
 
     private async loadAccounts(query: string) {
         const response = await this.api.searchAccounts<{ accounts: Account[] }>(query, this.fields);
-        this.accounts = response.data.searchArtworks;
+        this.accounts = response.data.searchAccounts;
     }
 }
 

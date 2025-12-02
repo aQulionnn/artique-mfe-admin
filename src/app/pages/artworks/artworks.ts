@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { createReadApi } from "../../services/readApi"
 import { environment } from '../../../environments/environment'
 import { Search } from '../../components/search/search'
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -14,6 +15,9 @@ import { Search } from '../../components/search/search'
 })
 
 export class Artworks implements OnInit {
+
+    constructor(private readonly router: Router) { }
+
     searchText = ''
     artworks: Artwork[] = []
 
@@ -32,6 +36,10 @@ export class Artworks implements OnInit {
     private async loadArtworks(query: string) {
         const response = await this.api.searchArtworks<{ artworks: Artwork[] }>(query, [], [], this.fields);
         this.artworks = response.data.searchArtworks;
+    }
+
+    async edit(id: string) {
+        await this.router.navigate(['/artworks', id]);
     }
 }
 

@@ -1,0 +1,6 @@
+<main class="artwork">
+    <form class="artwork__form" (ngSubmit)="save()">
+        <textarea class="artwork__description" [(ngModel)]="artwork.description" name="description"></textarea>
+        <button class="artwork__save-btn" type="submit">Save</button>
+    </form>
+</main>
