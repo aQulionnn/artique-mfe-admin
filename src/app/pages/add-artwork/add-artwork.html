@@ -1,0 +1,16 @@
+<main class="add-artwork">
+    <form class="add-artwork__form" (ngSubmit)="save()">
+        <input [(ngModel)]="artwork.title" name="title" placeholder="Title"/>
+        <textarea [(ngModel)]="artwork.description" name="description" placeholder="Description"></textarea>
+        <input [(ngModel)]="artwork.imageUrl" name="imageUrl" placeholder="Image URL"/>
+        <input [(ngModel)]="artwork.year" name="year" type="number"/>
+        <select [(ngModel)]="artwork.artistId" name="artistId">
+            @for (artist of artists; track artist.id) {
+                <option [value]="artist.id">
+                    {{ artist.name }}
+                </option>
+            }
+        </select>
+        <button type="submit">Add Artwork</button>
+    </form>
+</main>>

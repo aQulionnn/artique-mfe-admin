@@ -4,6 +4,7 @@ import { Layout } from './components/layout/layout'
 import { Artists } from './pages/artists/artists'
 import { Accounts } from './pages/accounts/accounts'
 import { EditArtwork } from './pages/edit-artwork/edit-artwork'
+import { AddArtwork } from './pages/add-artwork/add-artwork'
 
 export const routes: Routes = [
     {
@@ -15,7 +16,11 @@ export const routes: Routes = [
                 component: Artworks
             },
             {
-                path: 'artworks/:id',
+                path: 'artworks/add',
+                component: AddArtwork
+            },
+            {
+                path: 'artworks/edit/:id',
                 component: EditArtwork
             },
             {

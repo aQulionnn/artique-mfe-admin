@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { createReadApi } from '../../services/readApi'
 import { environment } from '../../../environments/environment'
 import { createWriteApi } from '../../services/writeApi'
@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms'
 })
 export class EditArtwork implements OnInit {
 
-    constructor(private readonly route: ActivatedRoute) { }
+    constructor(private readonly route: ActivatedRoute, private readonly router: Router) { }
 
     artwork: Artwork = {
         id: '',
@@ -39,6 +39,11 @@ export class EditArtwork implements OnInit {
 
     async save() {
         await this.writeApi.updateArtworkDescription(this.id, { description: this.artwork.description })
+    }
+
+    async delete() {
+        await this.writeApi.deleteArtwork(this.id)
+        await this.router.navigate(['/artworks'])
     }
 }
 

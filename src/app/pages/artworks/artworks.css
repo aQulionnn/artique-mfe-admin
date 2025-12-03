@@ -14,6 +14,17 @@
     border-bottom: 1px solid white;
 }
 
+.artworks__add-artwork {
+    padding: 1rem 2rem;
+    border: 1px dashed #ccc;
+
+    color: white;
+    word-spacing: 0.25rem;
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
 .artwork {
     padding: 1rem 2rem;
     border: 1px solid #ccc;
@@ -25,7 +36,7 @@
     cursor: pointer;
 }
 
-.artwork:hover {
+.artwork:hover, .artworks__add-artwork:hover {
     transform: scale(1.05);
 }
 

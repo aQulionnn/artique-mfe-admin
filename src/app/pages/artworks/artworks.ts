@@ -21,7 +21,7 @@ export class Artworks implements OnInit {
     searchText = ''
     artworks: Artwork[] = []
 
-    private api = createReadApi(`${environment.apiUrl}/graphql`)
+    private readApi = createReadApi(`${environment.apiUrl}/graphql`)
     private fields = ["id", "title", "year"]
 
     async ngOnInit() {
@@ -34,12 +34,16 @@ export class Artworks implements OnInit {
     }
 
     private async loadArtworks(query: string) {
-        const response = await this.api.searchArtworks<{ artworks: Artwork[] }>(query, [], [], this.fields);
+        const response = await this.readApi.searchArtworks<{ artworks: Artwork[] }>(query, [], [], this.fields);
         this.artworks = response.data.searchArtworks;
     }
 
+    async add() {
+        await this.router.navigate(['/artworks/add']);
+    }
+
     async edit(id: string) {
-        await this.router.navigate(['/artworks', id]);
+        await this.router.navigate(['/artworks/edit', id]);
     }
 }
 

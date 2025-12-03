@@ -3,6 +3,9 @@
         <app-search [searchTerm]="searchText" (searchChange)="onSearch($event)"/>
     </header>
     <section class="artworks__content">
+        <p class="artworks__add-artwork" (click)="add()">
+            Add Artwork
+        </p>
         @for (artwork of artworks; track artwork.id) {
             <p class="artwork" (click)="edit(artwork.id)">
                 {{ artwork.title }}

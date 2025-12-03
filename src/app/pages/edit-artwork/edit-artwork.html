@@ -3,4 +3,7 @@
         <textarea class="artwork__description" [(ngModel)]="artwork.description" name="description"></textarea>
         <button class="artwork__save-btn" type="submit">Save</button>
     </form>
+    <button class="artwork__delete-btn" (click)="delete()">
+        Delete
+    </button>
 </main>
