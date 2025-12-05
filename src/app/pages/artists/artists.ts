@@ -9,7 +9,7 @@ import { Search } from '../../components/search/search'
         Search
     ],
     templateUrl: './artists.html',
-    styleUrl: './artists.css'
+    styleUrl: './artists.less'
 })
 
 export class Artists implements OnInit {

@@ -9,7 +9,7 @@ import { Search } from '../../components/search/search'
         Search
     ],
     templateUrl: './accounts.html',
-    styleUrl: './accounts.css'
+    styleUrl: './accounts.less'
 })
 export class Accounts implements OnInit {
     searchText = ''

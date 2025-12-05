@@ -11,7 +11,7 @@ import { Router } from '@angular/router'
         Search
     ],
     templateUrl: './artworks.html',
-    styleUrl: './artworks.css'
+    styleUrl: './artworks.less'
 })
 
 export class Artworks implements OnInit {

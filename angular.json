@@ -5,7 +5,11 @@
   "projects": {
     "artique-mfe-admin": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +29,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ]
           },
           "configurations": {
@@ -88,7 +92,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ]
           }
         }
