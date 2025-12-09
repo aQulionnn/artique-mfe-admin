@@ -3,11 +3,16 @@ import {
     CreateArtworkRequest,
     QueryResponse,
     SearchArtworksInput,
-    UpdateArtworkDescriptionRequest
+    UpdateArtworkDescriptionRequest, UpdateArtworkRequest
 } from "../interfaces/artwork"
 
 export const createArtwork = async (api: AxiosInstance, request: CreateArtworkRequest) => {
     const {data} = await api.post("artworks", request)
+    return data
+}
+
+export const updateArtwork = async(api: AxiosInstance, id: string, request: UpdateArtworkRequest) => {
+    const { data } = await api.put(`artworks/${id}`, request)
     return data
 }
 
