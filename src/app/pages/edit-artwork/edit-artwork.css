@@ -1,7 +1,68 @@
 .artwork {
-    width: 100%;
-    height: 100%;
+    width: 80vw;
+    height: 95vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: #000;
+    color: #eee;
+    gap: 1.5rem;
+}
+
+.artwork__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.artwork__description {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #111;
+    color: #ccc;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+.artwork__description:focus {
+    border-color: #666;
+    outline: none;
+}
+
+.artwork__save-btn,
+.artwork__delete-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.artwork__save-btn {
+    background: #333;
+    color: #eee;
+}
+
+.artwork__save-btn:hover {
+    background: #555;
+    transform: scale(1.03);
+}
+
+.artwork__delete-btn {
+    background: #222;
+    color: #f88;
+    border: 1px solid #444;
+}
+
+.artwork__delete-btn:hover {
+    background: #333;
+    transform: scale(1.03);
 }

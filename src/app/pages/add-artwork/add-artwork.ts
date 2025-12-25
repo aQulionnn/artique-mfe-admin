@@ -32,6 +32,13 @@ export class AddArtwork implements OnInit {
 
     async save() {
         await this.writeApi.createArtwork(this.artwork)
+        this.artwork = {
+            title: '',
+            description: '',
+            imageUrl: '',
+            year: 0,
+            artistId: ''
+        }
     }
 }
 
